@@ -5,13 +5,13 @@ const weatherdetails=document.querySelector('.weather-details');
 const error=document.querySelector('.not-found');
 
 search.addEventListener('click',()=>{
-    const APIKey='d90c825dda6c642fd67494330c39e340';
+    const APIKey={YOUR_API_KEY};
     const city=document.querySelector('.search-box input').value;
 
     if(city==='')
         return;
     
-    // fetch('https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKey}')
+    
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKey}`)
 
     .then(response=>response.json())
@@ -56,7 +56,7 @@ search.addEventListener('click',()=>{
         }
 
         temperature.innerHTML=`${parseInt(json.main.temp)}<span>°C</span>`;
-        // description.innerHTML=`${parseInt(json.weather[0].description)}`;
+        
         description.innerHTML=`${json.weather[0].description}`;
 
         humidity.innerHTML=`${json.main.humidity}%`;
